@@ -1,9 +1,9 @@
-﻿  main.cpp
+﻿  dataharvest.cpp
      Creating library D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.lib and object D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.exp
   Generating code
-  1 of 130 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  0 of 128 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    7 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info

@@ -3,7 +3,7 @@ void test()
 {
     printf("\n\nRunning test\n");
 
-    dbConnect();
+    dbConnectTest();
 
     printf("\n\nEnd of test\n\n");
 }

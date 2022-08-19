@@ -17,8 +17,12 @@
 #include <cppconn/prepared_statement.h>
 
 void dataharvest();
+void execDriver();
+void deleteDriver();
 void query();
+void insert();
 void harvest();
-void dbConnect();
+void dbConnectTest(); // used for testing
+
 
 #endif // DATAHARVEST_H

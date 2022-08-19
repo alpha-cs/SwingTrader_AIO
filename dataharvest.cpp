@@ -8,56 +8,55 @@ sql::ResultSet *result;
 void dataharvest()
 {
     printf("\nInit Data Harvest");
+    _LOG("\nConnector/C++ framework...");
+    execDriver(); // begin
     query();
     harvest();
+    deleteDriver(); // end
+	
 
     // loop harvest tool
     // dataharvest();
 }
 
-// connect to database
-void dbConnect()
-{
+// exec db driver for partition
+void execDriver() {
     printf("\nConnecting to database");
     try
     {
         driver = get_driver_instance();
         connect = driver->connect(_HOST, _USER, _PASS);
     }
-    catch (sql::SQLException &e)
+    catch (sql::SQLException& e)
     {
+        printf("\nfail - dbConnect");
         std::cout << "Could not connect to server. Error message: " << e.what() << std::endl;
         system("pause");
         exit(1);
     }
-    printf("\npassed - dbConnect");
-    delete connect;
+    printf("\ndbConnect");
 }
 
-// this function is used to query the database
+
+// delete driver connection
+void deleteDriver() {
+	printf("\nDelete Driver / Connection");
+	delete connect;
+}
+
+// test db connection
+void dbConnectTest()
+{
+    execDriver();
+    printf("\npassed - dbConnect");
+    deleteDriver();
+}
+
+// query select all from table
 void query()
 {
-    _LOG("\nConnector/C++ framework...");
     printf("\nExec Query\n");
 
-    try
-    {
-        driver = get_driver_instance();
-        connect = driver->connect(_HOST, _USER, _PASS);
-    }
-    catch (sql::SQLException &e)
-    {
-        /*
-          MySQL Connector/C++ throws three different exceptions:
-
-          - sql::MethodNotImplementedException (derived from sql::SQLException)
-          - sql::InvalidArgumentException (derived from sql::SQLException)
-          - sql::SQLException (derived from std::runtime_error)
-        */
-        std::cout << "Could not connect to server. Error message: " << e.what() << std::endl;
-        system("pause");
-        exit(1);
-    }
 
     // connect->setSchema("world");
 
@@ -70,6 +69,11 @@ void query()
     delete result;
     delete stmt;
     delete connect;
+}
+
+// insert data into table
+void inser() {
+	
 }
 
 // Collect data from the internet
