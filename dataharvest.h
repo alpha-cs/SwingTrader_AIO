@@ -21,6 +21,7 @@ void execDriver();
 void deleteDriver();
 void query();
 void insert();
+void deleteFromTable();
 void harvest();
 void dbConnectTest(); // used for testing
 

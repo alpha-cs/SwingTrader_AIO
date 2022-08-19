@@ -1,7 +1,7 @@
-﻿  dataharvest.cpp
+﻿  test.cpp
      Creating library D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.lib and object D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.exp
   Generating code
-  0 of 128 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  0 of 127 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

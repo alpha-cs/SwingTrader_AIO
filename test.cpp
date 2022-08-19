@@ -1,9 +1,11 @@
 #include "test.h"
 void test()
 {
-    printf("\n\nRunning test\n");
+    printf("\n\n=======================================");
+    printf("\nRunning test\n");
 
     dbConnectTest();
-
-    printf("\n\nEnd of test\n\n");
+	
+    printf("\n\nEnd of test");
+    printf("\n=======================================\n\n");
 }
