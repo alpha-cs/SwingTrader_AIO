@@ -1,6 +1,10 @@
 // This function is used to measure the time
 #include "chronometer.h"
 
+#define SECONDS_PER_MINUTE = 60;
+#define SECONDS_PER_HOUR = SECONDS_PER_MINUTE * 60;
+#define SECONDS_PER_DAY = SECONDS_PER_HOUR * 24;
+
 int *start = nullptr;
 int *end = nullptr;
 
