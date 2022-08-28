@@ -1,8 +1,14 @@
-﻿  dataharvest.cpp
+﻿  chronometer.cpp
+  dataharvest.cpp
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(36,20): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+  datalogger.cpp
+  db_const.cpp
+  main.cpp
+  test.cpp
      Creating library D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.lib and object D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.exp
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 127 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Previous IPDB not found, fall back to full compilation.
+  All 159 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info

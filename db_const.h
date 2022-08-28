@@ -2,11 +2,27 @@
 #define DB_CONST_H
 
 #pragma once
+#include <stdio.h>
 
 // for demonstration only. never save password in the code!
-#define _HOST "localhost" // server host
-#define _USER "root"	  // server user
-#define _PASS "5662"	  // server password | This is my name in number format. :)
+#define HOST "localhost"   // server host
+#define USER "root"		   // server user
+#define PASS "5662"		   // server password | This is my name in number format. :)
+#define DB "swingtraderdb" // database name
+
+/*
+  Include directly the different
+  headers from cppconn/ and mysql_driver.h + mysql_util.h
+  (and mysql_connection.h). This will reduce your build time!
+*/
+#include "mysql_connection.h"
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/prepared_statement.h>
+
+void execDriver();
+void deleteDriver();
 
 // exchange_id enum of us exchanges
 enum exchange_id
@@ -17,16 +33,5 @@ enum exchange_id
 	// reserverd. add more exchanges below
 	sizeofExchange // size of exchange_id
 };
-
-// holds sql table names as company ticker names
-const char *const sql_table[] = {
-	"META",	 // facebook
-	"AMZN",	 // amazon
-	"NFLX",	 // netflix
-	"GOOGL", // google
-	"MSFT"	 // microsoft
-};
-// MySQL database name
-#define _DB "swingtraderdb" // database name is used for testing
 
 #endif // DB_CONST_H

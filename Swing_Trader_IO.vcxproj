@@ -135,6 +135,8 @@
   <ItemGroup>
     <ClCompile Include="chronometer.cpp" />
     <ClCompile Include="dataharvest.cpp" />
+    <ClCompile Include="datalogger.cpp" />
+    <ClCompile Include="db_const.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
@@ -142,6 +144,7 @@
     <ClInclude Include="chronometer.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="dataharvest.h" />
+    <ClInclude Include="datalogger.h" />
     <ClInclude Include="db_const.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>

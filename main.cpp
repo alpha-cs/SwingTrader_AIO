@@ -13,6 +13,7 @@ A C/C++ project by alpha
 
 int main()
 {
+
     compileTime();
     startRunTime();
 
