@@ -18,7 +18,7 @@ int main()
     startRunTime();
 
     // test
-    test();
+    // test();
 
     printf("\nInitializing program ...");
 

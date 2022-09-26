@@ -1,8 +1,15 @@
-﻿     Creating library D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.lib and object D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.exp
+﻿  dataharvest.cpp
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(55,20): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(79,51): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(80,52): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(81,51): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(82,50): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(84,56): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+     Creating library D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.lib and object D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.exp
   Generating code
-  0 of 159 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  9 of 164 functions ( 5.5%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    8 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info

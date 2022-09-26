@@ -5,12 +5,11 @@
 #include <stdio.h>
 #include "db_const.h"
 #include "constants.h"
-#include "datalogger.h"
 
 void dataharvest();
+void companySymbol();
+void stockData();
 
-void execQuery();
-void harvest();
 void dbConnectTest(); // used for testing
 
 #endif // DATAHARVEST_H

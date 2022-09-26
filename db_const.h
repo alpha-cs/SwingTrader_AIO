@@ -5,10 +5,12 @@
 #include <stdio.h>
 
 // for demonstration only. never save password in the code!
-#define HOST "localhost"   // server host
-#define USER "root"		   // server user
-#define PASS "5662"		   // server password | This is my name in number format. :)
-#define DB "swingtraderdb" // database name
+#define HOST "localhost" // server host
+#define USER "root"		 // server user
+#define PASS "5662"		 // server password | This is my name in number format. :)
+
+#define SWINGTRADER_DB "swingtraderdb" // database name
+#define HISTORY_DB "pricehistory"	   // database name
 
 /*
   Include directly the different
@@ -27,10 +29,9 @@ void deleteDriver();
 // exchange_id enum of us exchanges
 enum exchange_id
 {
-	NASDAQ = 0, // NASDAQ
-	NYSE,		// NYSE
-	AMEX,		// AMEX
-	// reserverd. add more exchanges below
+	NASDAQ = 0,	   // NASDAQ
+	NYSE,		   // NYSE
+	AMEX,		   // AMEX
 	sizeofExchange // size of exchange_id
 };
 
