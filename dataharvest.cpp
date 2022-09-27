@@ -23,12 +23,18 @@ struct stockMarketData
 std::string *ticker = nullptr;
 stockMarketData *marketData = nullptr;
 
-// init data harvest tool
+/**
+ * @brief dataharvest
+ * @details This function will be used to harvest data from the internet and store it in the database.
+ * This function will be called by the main function.
+ *
+ */
 void dataharvest()
 {
     _LOG("\nConnector/C++ framework...");
     printf("\nConnecting to database");
     execDriver(); // begin
+    insertData();
 
     companySymbol();
     stockData();
@@ -39,9 +45,12 @@ void dataharvest()
     // dataharvest();
 }
 
-// Get Stock ticker symbol
-// [in] SELECT * FROM " + STdb + ".company
-// [] ticker
+/**
+ * @brief companySymbol
+ * @details This function will search the database for the company symbol and store it in a
+ *          dynamic array.
+ * [out] ticker - dynamic array of company symbols
+ */
 void companySymbol()
 {
     try
@@ -64,6 +73,12 @@ void companySymbol()
     }
 }
 
+/**
+ * @brief stockData
+ * @details This function will search the database for the company symbol and store it in a
+ *          dynamic array.
+ * [out] marketData - dynamic array of stock market data
+ */
 void stockData()
 {
     try
@@ -94,3 +109,16 @@ void stockData()
         exit(1);
     }
 }
+
+/**
+ * We need to get user input as string
+ * store it in unordered_map
+ *      if it doesnt exist in stockData
+ *      if it doesnt exist in newcompanydb
+ *      if it doesnt exist in unordered_map
+ * once while (!exit) loop ends
+ * insert data into insertData()
+ *      loop in-till all the new data from unordered_map has been insereted into newcompany
+ * pause program
+ * promt to restart harvester
+ */

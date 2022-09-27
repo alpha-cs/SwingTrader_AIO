@@ -9,6 +9,7 @@
 void dataharvest();
 void companySymbol();
 void stockData();
+void insertData();
 
 void dbConnectTest(); // used for testing
 

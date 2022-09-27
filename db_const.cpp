@@ -5,8 +5,10 @@ sql::Connection *connect;
 sql::PreparedStatement *stmt;
 sql::ResultSet *result;
 
-// exec db driver for partition
-// Connect to database
+/**
+ * @brief dbConnectTest
+ * @details This function is used for initializating the connection to the database.
+ */
 void execDriver()
 {
     try
@@ -26,7 +28,10 @@ void execDriver()
     printf("\n==============================\n");
 }
 
-// delete driver connection
+/**
+ * @brief dbConnectTest
+ * @details This function is used to terminate the connection to the database.
+ */
 void deleteDriver()
 {
     delete connect;
