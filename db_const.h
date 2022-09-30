@@ -2,16 +2,7 @@
 #define DB_CONST_H
 
 #pragma once
-#include <stdio.h>
-
-// for demonstration only. never save password in the code!
-#define HOST "localhost" // server host
-#define USER "root"		 // server user
-#define PASS "5662"		 // server password | This is my name in number format. :)
-
-#define SWINGTRADER_DB "swingtraderdb" // database name
-#define HISTORY_DB "pricehistory"	   // database name
-
+#include "constants.h"
 /*
   Include directly the different
   headers from cppconn/ and mysql_driver.h + mysql_util.h
@@ -23,8 +14,17 @@
 #include <cppconn/resultset.h>
 #include <cppconn/prepared_statement.h>
 
+// for demonstration only. never save password in the code!
+#define HOST "localhost" // server host
+#define USER "root"		 // server user
+#define PASS "5662"		 // server password | This is my name in number format. :)
+
+#define SWINGTRADER_DB "swingtraderdb" // database name
+#define HISTORY_DB "pricehistory"	   // database name
+
 void execDriver();
 void deleteDriver();
+void system_SwingTrader_py();
 
 // exchange_id enum of us exchanges
 enum exchange_id

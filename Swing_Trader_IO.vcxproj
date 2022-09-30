@@ -137,14 +137,12 @@
     <ClCompile Include="dataharvest.cpp" />
     <ClCompile Include="db_const.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chronometer.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="dataharvest.h" />
     <ClInclude Include="db_const.h" />
-    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\Downloads\Database_Rev1.jpg" />

@@ -7,9 +7,9 @@ A C/C++ project by alpha
 // lib
 #include <stdio.h>
 // multithread partitions
-#include "test.h"
 #include "chronometer.h"
 #include "dataharvest.h"
+
 
 int main()
 {

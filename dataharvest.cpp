@@ -1,26 +1,11 @@
 #include "dataharvest.h"
 
-extern sql::Driver *driver;
-extern sql::Connection *connect;
-extern sql::PreparedStatement *stmt;
-extern sql::ResultSet *result;
-
-const std::string STdb = SWINGTRADER_DB;
-const std::string PHdb = HISTORY_DB;
-
-struct stockMarketData
-{
-    int id;
-    std::string ticker, datetime;
-    float open, close, high, low;
-    int volume;
-    float dividends;
-    int stocksplit;
-};
-
 // In the future change this to search thorugh a defined user profile. This way we can change
 // which stocks we want and limit the memory size.
 std::string *ticker = nullptr;
+std::string *newCompanyTicker = nullptr;
+int tickerSize = 0;
+int newTickerSize = 0;
 stockMarketData *marketData = nullptr;
 
 /**
@@ -33,13 +18,17 @@ void dataharvest()
 {
     _LOG("\nConnector/C++ framework...");
     printf("\nConnecting to database");
-    execDriver(); // begin
-    insertData();
+    execDriver(); // begin connection to database
 
     companySymbol();
-    stockData();
+    newCompanySymbol();
 
-    deleteDriver(); // end
+    userInputData();
+
+    stockData();
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    deleteDriver(); // end connection to database
 
     // loop harvest tool
     // dataharvest();
@@ -55,13 +44,43 @@ void companySymbol()
 {
     try
     {
-        stmt = connect->prepareStatement("SELECT * FROM " + STdb + ".company");
+        stmt = connectSql->prepareStatement("SELECT * FROM " + STdb + ".company");
         result = stmt->executeQuery();
         ticker = new std::string[result->rowsCount()];
         for (int i = 0; result->next(); i++)
         {
             ticker[i] = result->getString(3);
-            printf("\n%s", ticker[i]);
+            tickerSize++;
+            // printf("\n%s", ticker[i]);
+        }
+    }
+    catch (sql::SQLException &e)
+    {
+        printf("\nfail - execQuery");
+        std::cout << "Err: " << e.what() << std::endl;
+        system("pause");
+        exit(1);
+    }
+}
+
+/**
+ * @brief newCompanySymbol
+ * @details This function will search the database for the company symbol and store it in a
+ *          dynamic array.
+ * [out] newCompanyTicker - dynamic array of company symbols
+ */
+void newCompanySymbol()
+{
+    try
+    {
+        stmt = connectSql->prepareStatement("SELECT * FROM " + STdb + ".newcompany");
+        result = stmt->executeQuery();
+        newCompanyTicker = new std::string[result->rowsCount()];
+        for (int i = 0; result->next(); i++)
+        {
+            newCompanyTicker[i] = result->getString(1);
+            newTickerSize++;
+            // printf("\n%s", newCompanyTicker[i]);
         }
     }
     catch (sql::SQLException &e)
@@ -83,7 +102,7 @@ void stockData()
 {
     try
     {
-        stmt = connect->prepareStatement("SELECT * FROM " + STdb + ".stockdata");
+        stmt = connectSql->prepareStatement("SELECT * FROM " + STdb + ".stockdata");
         result = stmt->executeQuery();
         marketData = new stockMarketData[result->rowsCount()];
         for (int i = 0; result->next(); i++)
@@ -98,7 +117,7 @@ void stockData()
             marketData[i].volume = result->getInt("volume");
             marketData[i].dividends = result->getDouble("dividends");
             marketData[i].stocksplit = result->getInt("stocksplit");
-            printf("\n%d %s %s %f %f %f %f %d %f %d", marketData[i].id, marketData[i].ticker.c_str(), marketData[i].datetime.c_str(), marketData[i].open, marketData[i].close, marketData[i].high, marketData[i].low, marketData[i].volume, marketData[i].dividends, marketData[i].stocksplit);
+            // printf("\n%d %s %s %f %f %f %f %d %f %d", marketData[i].id, marketData[i].ticker.c_str(), marketData[i].datetime.c_str(), marketData[i].open, marketData[i].close, marketData[i].high, marketData[i].low, marketData[i].volume, marketData[i].dividends, marketData[i].stocksplit);
         }
     }
     catch (sql::SQLException &e)
@@ -111,14 +130,81 @@ void stockData()
 }
 
 /**
- * We need to get user input as string
- * store it in unordered_map
- *      if it doesnt exist in stockData
- *      if it doesnt exist in newcompanydb
- *      if it doesnt exist in unordered_map
- * once while (!exit) loop ends
- * insert data into insertData()
- *      loop in-till all the new data from unordered_map has been insereted into newcompany
- * pause program
- * promt to restart harvester
+ * @brief insertData
+ * @details This function will insert data into the database.
+ * [in] userInputList - list of user input data
  */
+void insertData(std::list<std::string> userInputList)
+{
+    try
+    {
+        stmt = connectSql->prepareStatement("INSERT INTO " + STdb + ".newcompany (ticker) VALUES (?)");
+        for (std::string userInput : userInputList)
+        {
+            stmt->setString(1, userInput);
+            stmt->executeUpdate();
+        }
+    }
+    catch (sql::SQLException &e)
+    {
+        printf("\nfail - insertData.");
+        std::cout << "Err: " << e.what() << std::endl;
+        system("pause");
+        exit(1);
+    }
+}
+
+/**
+ * @brief userInputData
+ * @details This function will ask the user for input and store it in a list.
+ * [out] userInputList - list of user input data
+ */
+void userInputData()
+{
+    std::list<std::string> *userInputList = nullptr;
+    std::list<std::string> *dupe = nullptr;
+    dupe = new std::list<std::string>;
+
+    for (int i = 0; i < tickerSize; i++)
+    {
+        dupe->push_back(ticker[i]);
+    }
+    for (int i = 0; i < newTickerSize; i++)
+    {
+        dupe->push_back(newCompanyTicker[i]);
+    }
+
+    userInputList = new std::list<std::string>;
+    bool exit = false;
+    printf("\nEnter \"exit\" to quit userinput().\n");
+    while (!exit)
+    {
+        printf("\nEnter a company symbol: ");
+        std::string userStr;
+        std::cin >> userStr;
+        if (userStr == "exit")
+        {
+            exit = true;
+        }
+        else
+        {
+            if (std::find(dupe->begin(), dupe->end(), userStr) != dupe->end())
+            {
+                std::cout << "Duplicate company symbol found.\n";
+            }
+            else
+            {
+                userInputList->push_back(userStr);
+            }
+        }
+    }
+    if (userInputList != nullptr)
+    {
+        insertData(*userInputList);
+    }
+
+    system_SwingTrader_py(); // call python script
+    printf("\nSleeping for 30 seconds...\nPlease Wait...");
+    std::this_thread::sleep_for(std::chrono::seconds(30));
+    delete userInputList;
+}

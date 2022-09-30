@@ -1,7 +1,7 @@
 #include "db_const.h"
 
 sql::Driver *driver;
-sql::Connection *connect;
+sql::Connection *connectSql;
 sql::PreparedStatement *stmt;
 sql::ResultSet *result;
 
@@ -14,7 +14,7 @@ void execDriver()
     try
     {
         driver = get_driver_instance();
-        connect = driver->connect(HOST, USER, PASS);
+        connectSql = driver->connect(HOST, USER, PASS);
         // connect->setSchema("swingtraderdb");
     }
     catch (sql::SQLException &e)
@@ -34,5 +34,15 @@ void execDriver()
  */
 void deleteDriver()
 {
-    delete connect;
+    delete connectSql;
+}
+
+/**
+ * @brief system
+ * @details This function will harvest the data from the yahoo finance website.
+ */
+void system_SwingTrader_py()
+{
+    system("start cmd /k D:\\_Programs\\Swing_Trader_Scraper\\main.py");
+    MessageBox(nullptr, TEXT("Sleeping for 1 minute\nUpdating Database"), TEXT("SwingTrader.AIO"), MB_ICONEXCLAMATION | MB_OK);
 }

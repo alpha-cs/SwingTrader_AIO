@@ -3,6 +3,9 @@
 
 #pragma once
 
+#include <stdio.h>
+#include <Windows.h>
+
 const double PI{3.1415926535897932384626433832795};
 
 // Used for loging to console
