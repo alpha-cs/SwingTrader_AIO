@@ -16,8 +16,6 @@ stockMarketData *marketData = nullptr;
  */
 void dataharvest()
 {
-    _LOG("\nConnector/C++ framework...");
-    printf("\nConnecting to database");
     execDriver(); // begin connection to database
 
     companySymbol();
@@ -176,13 +174,13 @@ void userInputData()
 
     userInputList = new std::list<std::string>;
     bool exit = false;
-    printf("\nEnter \"exit\" to quit userinput().\n");
+    printf("\nPlease enter a company symbol to add to the database. (Enter '0' to 0.)");
     while (!exit)
     {
         printf("\nEnter a company symbol: ");
         std::string userStr;
         std::cin >> userStr;
-        if (userStr == "exit")
+        if (userStr == "0")
         {
             exit = true;
         }

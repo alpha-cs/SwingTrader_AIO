@@ -24,7 +24,7 @@ void execDriver()
         system("pause");
         exit(1);
     }
-    printf("\ndbConnect\n");
+    printf("\ninit Database\n");
     printf("\n==============================\n");
 }
 
@@ -44,5 +44,5 @@ void deleteDriver()
 void system_SwingTrader_py()
 {
     system("start cmd /k D:\\_Programs\\Swing_Trader_Scraper\\main.py");
-    MessageBox(nullptr, TEXT("Sleeping for 1 minute\nUpdating Database"), TEXT("SwingTrader.AIO"), MB_ICONEXCLAMATION | MB_OK);
+    // MessageBox(nullptr, TEXT("Sleeping for 1 minute\nUpdating Database"), TEXT("SwingTrader.AIO"), MB_ICONEXCLAMATION | MB_OK);
 }

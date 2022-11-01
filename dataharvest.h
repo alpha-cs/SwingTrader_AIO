@@ -2,8 +2,9 @@
 #define DATAHARVEST_H
 #pragma once
 
-#include <chrono>      // for sleep_for // will be replaceced with chromo function
-#include <thread>      // for sleep_for // will be replaceced with chromo function
+#include <chrono> // for sleep_for // will be replaceced with chromo function
+#include <thread> // for sleep_for // will be replaceced with chromo function
+#include "chronometer.h"
 #include "db_const.h"  // for database connection
 #include "constants.h" // for constants library
 

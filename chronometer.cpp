@@ -1,18 +1,16 @@
 // This function is used to measure the time
 #include "chronometer.h"
 
-#define SECONDS_PER_MINUTE = 60;
-#define SECONDS_PER_HOUR = SECONDS_PER_MINUTE * 60;
-#define SECONDS_PER_DAY = SECONDS_PER_HOUR * 24;
-
 int *start = nullptr;
+int *now = new int;
+int *last = new int;
 int *end = nullptr;
 
 // this function is used to keep time of compile time
 void compileTime()
 {
     printf("\nDate: %s", __DATE__);
-    printf("\nTime: %s", __TIME__);
+    printf("\nTime: %s\n", __TIME__);
 }
 
 // this function begins run time only
@@ -32,4 +30,10 @@ void endRunTime()
     delete end;
     start = nullptr;
     end = nullptr;
+}
+
+int getnow()
+{
+    *now = clock();
+    return *now;
 }

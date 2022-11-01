@@ -1,14 +1,17 @@
-﻿  dataharvest.cpp
+﻿  chronometer.cpp
+  dataharvest.cpp
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(111,51): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(112,52): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
 D:\_Programs\Swing_Trader_IO\dataharvest.cpp(113,51): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
-D:\_Programs\Swing_Trader_IO\dataharvest.cpp(114,52): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
-D:\_Programs\Swing_Trader_IO\dataharvest.cpp(115,51): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
-D:\_Programs\Swing_Trader_IO\dataharvest.cpp(116,50): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
-D:\_Programs\Swing_Trader_IO\dataharvest.cpp(118,56): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(114,50): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+D:\_Programs\Swing_Trader_IO\dataharvest.cpp(116,56): warning C4244: '=': conversion from 'long double' to 'float', possible loss of data
+  db_const.cpp
+  main.cpp
      Creating library D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.lib and object D:\_Programs\Swing_Trader_IO\x64\Release\Swing_Trader_IO.exp
   Generating code
-  1 of 352 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  2 of 389 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB 'jdbc.pdb' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at 'D:\_Programs\Swing_Trader_IO\x64\Release\jdbc.pdb'; linking object as if no debug info

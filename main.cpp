@@ -6,10 +6,13 @@ A C/C++ project by alpha
 
 // lib
 #include <stdio.h>
-// multithread partitions
 #include "chronometer.h"
 #include "dataharvest.h"
+#include <thread>
 
+int now = getnow();
+int last = getnow();
+int delay = HOURS;
 
 int main()
 {
@@ -17,13 +20,23 @@ int main()
     compileTime();
     startRunTime();
 
-    // test
-    // test();
-
-    printf("\nInitializing program ...");
-
-    // partitions
+    // Request data from the internet and update the database with user input
     dataharvest();
+
+    // Thread 1 Update db every hour
+    std::thread updateExternIO([]()
+                               {
+        while (true)
+        {
+            now = getnow();
+            if (now - last >= (delay))
+            {
+                system_SwingTrader_py();
+                last = now;
+            }
+        } });
+    updateExternIO.join();
+    // Thread 2 Run calculations every second to determine when to buy/sell
 
     endRunTime();
     return 0;
